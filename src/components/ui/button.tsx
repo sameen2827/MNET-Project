@@ -2,14 +2,15 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "outline" | "ghost";
+type Variant = "primary" | "secondary" | "outline" | "ghost" | "glow";
 type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-indigo-600 text-white hover:bg-indigo-700",
-  secondary: "bg-slate-800 text-white hover:bg-slate-900",
-  outline: "border border-slate-300 text-slate-700 hover:bg-slate-50",
-  ghost: "text-slate-600 hover:bg-slate-100",
+  primary: "bg-cyan-500 text-slate-950 hover:bg-cyan-400 font-semibold",
+  secondary: "bg-violet-600 text-white hover:bg-violet-500",
+  outline: "border border-slate-600 text-slate-200 hover:border-cyan-500/50 hover:bg-cyan-500/5",
+  ghost: "text-slate-400 hover:text-cyan-400 hover:bg-white/5",
+  glow: "bg-gradient-to-r from-cyan-500 to-violet-500 text-white hover:opacity-90 shadow-lg shadow-cyan-500/20",
 };
 
 const sizes: Record<Size, string> = {
@@ -34,7 +35,7 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center rounded-lg font-medium transition-colors disabled:opacity-50",
+        "inline-flex items-center justify-center rounded-lg font-medium transition-all disabled:opacity-50",
         variants[variant],
         sizes[size],
         className
@@ -65,7 +66,7 @@ export function ButtonLink({
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center justify-center rounded-lg font-medium transition-colors",
+        "inline-flex items-center justify-center rounded-lg font-medium transition-all",
         variants[variant],
         sizes[size],
         className

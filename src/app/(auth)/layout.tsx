@@ -4,16 +4,15 @@ import type { ReactNode } from "react";
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4">
+    <div className="mesh-bg grid-pattern flex min-h-screen items-center justify-center px-4">
       <div className="w-full max-w-md">
         <div className="mb-8 text-center">
-          <Link href="/" className="text-2xl font-bold text-indigo-600">
+          <Link href="/" className="text-2xl font-bold text-gradient">
             {siteConfig.name}
           </Link>
+          <p className="mt-2 text-sm text-slate-500">{siteConfig.tagline}</p>
         </div>
-        <div className="rounded-xl border border-slate-200 bg-white p-8 shadow-sm">
-          {children}
-        </div>
+        <div className="glass-card rounded-2xl p-8">{children}</div>
       </div>
     </div>
   );

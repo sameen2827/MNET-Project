@@ -20,9 +20,9 @@ export function Sidebar({
   const pathname = usePathname();
 
   return (
-    <aside className="flex w-64 flex-col border-r border-slate-200 bg-white">
-      <div className="flex h-16 items-center border-b border-slate-200 px-6">
-        <Link href="/" className="text-lg font-bold text-indigo-600">
+    <aside className="flex w-64 flex-col border-r border-slate-800 bg-slate-950">
+      <div className="flex h-16 items-center border-b border-slate-800 px-6">
+        <Link href="/" className="text-lg font-bold text-gradient">
           {title}
         </Link>
       </div>
@@ -40,10 +40,10 @@ export function Sidebar({
               key={item.href}
               href={item.href}
               className={cn(
-                "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
                 isActive
-                  ? "bg-indigo-50 text-indigo-700"
-                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                  ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
+                  : "text-slate-400 hover:bg-slate-800/50 hover:text-slate-200"
               )}
             >
               <span>{item.icon}</span>
@@ -52,10 +52,10 @@ export function Sidebar({
           );
         })}
       </nav>
-      <div className="border-t border-slate-200 p-4">
+      <div className="border-t border-slate-800 p-4">
         <Link
           href="/"
-          className="text-sm text-slate-500 hover:text-indigo-600"
+          className="text-sm text-slate-500 transition-colors hover:text-cyan-400"
         >
           ← Back to Website
         </Link>

@@ -20,7 +20,7 @@ export function PlaceholderTable<T extends object>({
   if (data.length === 0) {
     return (
       <Card>
-        <p className="text-center text-sm text-slate-500 py-8">{emptyMessage}</p>
+        <p className="py-8 text-center text-sm text-slate-500">{emptyMessage}</p>
       </Card>
     );
   }
@@ -30,11 +30,11 @@ export function PlaceholderTable<T extends object>({
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-slate-200 bg-slate-50">
+            <tr className="border-b border-slate-700 bg-slate-900/50">
               {columns.map((col) => (
                 <th
                   key={String(col.key)}
-                  className="px-6 py-3 text-left font-medium text-slate-500"
+                  className="px-6 py-3 text-left font-medium text-slate-400"
                 >
                   {col.label}
                 </th>
@@ -43,9 +43,9 @@ export function PlaceholderTable<T extends object>({
           </thead>
           <tbody>
             {data.map((row, i) => (
-              <tr key={i} className="border-b border-slate-100 last:border-0">
+              <tr key={i} className="border-b border-slate-800 last:border-0">
                 {columns.map((col) => (
-                  <td key={String(col.key)} className="px-6 py-4 text-slate-700">
+                  <td key={String(col.key)} className="px-6 py-4 text-slate-300">
                     {col.render
                       ? col.render(row[col.key], row)
                       : String(row[col.key] ?? "")}
